@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="Lab13.css" rel="stylesheet" type= "text/css">
+	<title>Lab13</title>
+</head>
+<body>
+	<div class="css1">
+		<h1>JS Calculator</h1>
+			<p>Number 1</p>
+			<input class="css2" type="text" id="n1">
+			<p>Number 2</p>
+			<input class="css2" type="text" id="n2">
+			<p>Operate way?</p>
+			<select class="css2" id="operateWay" onchange="setButton(this.value)">
+				<option value= "plus" id= "plus">+</option>
+				<option value= "minus" id= "minus">-</option>
+				<option value= "times" id= "times">*</option>
+				<option value = "divide" id= "divide">/</option>
+			</select>
+			<p><input class= "css2" type= "button" value= "Add" id= "operateButton" onclick= "calculate()"></p>
+			<p id = "ans"></p>
+	</div>
+	<script type="text/javascript">
+		function calculate(){
+			var n1 = document.getElementById('n1').value;
+			var n2 = document.getElementById('n2').value;
+			var result;
+			if(document.getElementById ('operateWay' ).value=='plus'){
+				result=parseInt (n1)+parseInt (n2);
+			}else if(document.getElementById('operateWay').value=='minus'){
+				result=parseInt (n1)-parseInt (n2);
+			}else if(document.getElementById('operateWay').value=='times'){
+				result=parseInt (n1)*parseInt (n2);
+			}else{
+				result=parseInt (n1)/parseInt (n2);
+			}
+			document.getElementById('ans').innerHTML='Result = '+result;
+		}
+		function setButton(val){
+			var button = document.getElementById('operateButton');
+			if(val=='plus'){
+				button.value='Add';
+			}else if(val=='minus'){
+				button.value='Minus';
+			}else if(val=='times'){
+				button.value='Times';
+			}else{
+				button.value='Divide';
+			}
+		}
+	</script>
+</body>			
+</html>
